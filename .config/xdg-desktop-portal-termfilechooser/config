@@ -1,0 +1,8 @@
+### $XDG_CONFIG_HOME/xdg-desktop-portal-termfilechooser/config ###
+
+[filechooser]
+cmd=yazi-wrapper.sh
+default_dir=/home/sugjo
+env=TERMCMD=kitty --class fileManager
+open_mode = suggested
+save_mode = last

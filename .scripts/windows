@@ -1,0 +1,3 @@
+sudo cp -f /mnt/winshare/Files/scripts/OsSwitch/windows/PreviousBoot /boot/EFI/refind/vars/PreviousBoot
+reboot
+

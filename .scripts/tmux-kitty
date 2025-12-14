@@ -1,0 +1,3 @@
+if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
+  tmux attach || exec tmux new -s default && exit;
+fi

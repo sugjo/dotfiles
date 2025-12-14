@@ -1,0 +1,128 @@
+// -*- mode: jsonc -*-
+{
+    "height": 35, // Waybar height (to be removed for auto height)
+    "spacing": 4, // Gaps between modules (4px)
+    "modules-left": [
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "hyprland/workspaces",
+    ],
+    "modules-right": [
+        "systemd-failed-units",
+        "pulseaudio",
+        "backlight",
+        "hyprland/language",
+        "network",
+        "tray",
+        "clock",
+    ],
+    "hyprland/window": {
+        "format": "{}",
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "󰈹  $1",
+            "(.*) zsh in": "> $1"
+        },
+        "separate-outputs": true
+    },
+    "hyprland/workspaces": {
+	"format": "{icon}",
+        "persistent-workspaces": {
+            "*": 1,
+            "*": 2,
+            "*": 3,
+            "*": 4,
+            "*": 5
+        },
+	"format-icons": {
+		"1": "",
+		"2": "",
+		"3": "",
+		"4": "",
+		"5": "",
+		"default": ""
+	},
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-ru": "RU",
+        "keyboard-name": "semico-usb-keyboard"
+    },
+    "systemd-failed-units": {
+	"hide-on-ok": true, // Do not hide if there is zero failed units.
+	"format": "  {nr_failed}",
+	"format-ok": "",
+	"system": true, // Monitor failed systemwide units.
+	"user": false // Ignore failed user units.
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}%",
+        "format-disconnected": "Disconnected",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "spacing": 10,
+        "icons": {
+            "TelegramDesktop": "/home/sugjo/.icons/Telegram.png",
+            "Throne": "/home/sugjo/.icons/Throne.png",
+            "discord": "/home/sugjo/.icons/Discord.png"
+        }
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "network": {
+        "format-ethernet": "󰱓",
+        "format-linked": "󰅛",
+        "format-disconnected": "󰲛",
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-muted": " {format_source}",
+        "format-source": " ",
+        "format-source-muted": "",
+        "format-icons": {
+                  "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
