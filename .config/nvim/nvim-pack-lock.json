@@ -56,6 +56,10 @@
       "rev": "81aec1e4",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
+    "nvim-treesitter-context": {
+      "rev": "64dd4cf",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
+    },
     "nvim-ts-autotag": {
       "rev": "c4ca798",
       "src": "https://github.com/windwp/nvim-ts-autotag"
