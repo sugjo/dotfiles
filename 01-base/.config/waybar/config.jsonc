@@ -4,7 +4,8 @@
     "spacing": 4, // Gaps between modules (4px)
 
     "include": [
-        "~/.config/waybar/workspaces.json"
+        "~/.config/waybar/workspaces.json",
+        "~/.config/waybar/language.json"
     ],
 
     "modules-left": [
@@ -29,12 +30,6 @@
             "(.*) zsh in": "> $1"
         },
         "separate-outputs": true
-    },
-    "hyprland/language": {
-        "format": "{}",
-        "format-en": "EN",
-        "format-ru": "RU",
-        "keyboard-name": "semico-usb-keyboard"
     },
     "systemd-failed-units": {
         "hide-on-ok": true, // Do not hide if there is zero failed units.
