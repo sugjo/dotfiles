@@ -1,16 +1,19 @@
 #!/bin/bash
 
 DIRS=(
-    "$HOME/Documents"
     "$HOME/Desktop/homelab"
     "$HOME/Desktop/Projects"
     "$HOME"
+    "$HOME/.config"
+    "$HOME/.dotfiles"
+    "$HOME/.dotfiles/.config"
+    "$HOME/Documents/"
 )
 
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find "${DIRS[@]}" -maxdepth 1  -type d \
+    selected=$(find "${DIRS[@]}" -maxdepth 1 -type d -or -type l \
         | sed "s|^$HOME/||"\
         | fzf)
     [[ $selected ]] && selected="$HOME/$selected"
