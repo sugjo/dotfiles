@@ -1,0 +1,105 @@
+configuration {
+    kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
+    kb-row-down: "Down,Control+j";
+    kb-accept-entry: "Control+m,Return,KP_Enter";
+    terminal: "mate-terminal";
+    kb-remove-to-eol: "Control+Shift+e";
+    /*kb-mode-next: "Shift+Right,Control+Tab,Control+l";*/
+    kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
+    kb-remove-char-back: "BackSpace";
+
+    font: "JetBrainsMono Bold 12";
+    modes: [ combi ];
+    combi-modes: [ drun, run ];
+    show-icons: true;
+    width: 40;
+    lines: 20;
+}
+
+#scrollbar {
+    /* ... other properties ... */
+    handle-color: @bg3;
+}
+
+window {
+    background-color: @bg0;
+    border-color: @bg3;
+    border: 2px;
+    height: 400px;
+    text-color: red;
+}
+
+mainbox {
+    padding: 12px;
+}
+
+inputbar {
+    color: @fg1;
+    background-color: @bg1;
+    border-color: @bg3;
+
+    border: 2px;
+
+    padding: 8px 16px;
+    spacing: 8px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @fg2;
+}
+
+entry {
+    color: @fg1;
+    placeholder: "Search";
+}
+
+message {
+    margin: 12px 0 0;
+    border-color: @bg2;
+    background-color: @bg2;
+}
+
+textbox {
+    padding: 8px 24px;
+}
+
+listview {
+    background-color: transparent;
+
+    margin: 12px 0 0;
+    lines: 8;
+    columns: 1;
+
+    fixed-height: false;
+}
+
+element {
+    padding: 8px 16px;
+    spacing: 8px;
+}
+
+element normal active {
+    text-color: @bg3;
+}
+
+element alternate active {
+    text-color: @bg3;
+}
+
+element selected normal, element selected active {
+    background-color: @bg3;
+}
+
+element-icon {
+    size: 1em;
+    vertical-align: 0.5;
+}
+
+element-text {
+    text-color: inherit;
+}
+
+/* Insert theme modifications after this */
+
+@import "theme.rasi"
