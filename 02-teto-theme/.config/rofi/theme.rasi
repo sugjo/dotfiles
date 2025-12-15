@@ -1,0 +1,13 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    spacing: 0px;
+    bg0:    #181425D9;
+    bg1:    #181425D9;
+    bg2:    #3D3D3D80;
+    bg3:    #FFE699;
+    fg0:    #FFE699;
+    fg1:    #FFE699;
+    fg2:    #FFE699;
+    fg3:    #FFE699;
+}
