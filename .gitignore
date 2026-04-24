@@ -1,0 +1,29 @@
+*
+
+!.gitignore
+
+# main modules
+!modules/
+!modules/**/
+
+# agenix
+!.secrets/
+!.secrets/**/
+!*.pub
+
+# flake.lock
+!*.lock
+
+# direnv
+!.envrc
+
+# misc files
+!*.age
+!*.md
+!*.nix
+!*.nu
+!*.txt
+!*.yml
+!*.json
+!*.toml
+!*.rs
