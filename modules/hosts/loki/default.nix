@@ -7,8 +7,8 @@
             ./_nixos
         ]
         ++ (with config.flake.modules.nixos; [
+            dev
             desktop
-            substituters
             bluetooth
             nvidia
         ]);

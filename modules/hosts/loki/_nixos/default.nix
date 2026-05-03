@@ -3,6 +3,8 @@
         ./hardware.nix
         ./disko.nix
     ];
+ 
+    programs.ssh.startAgent = true;
 
     time.hardwareClockInLocalTime = true;
 

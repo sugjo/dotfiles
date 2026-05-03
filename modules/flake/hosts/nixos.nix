@@ -1,7 +1,7 @@
 { inputs, lib, config, self, ... }:
 let
     inherit (lib) types mkOption;
-    inherit (import ./_utils { inherit lib inputs; }) baseHostModule;
+    inherit (import ./_utils { inherit lib inputs; }) baseHostModule homeManagerModule;
 in
 {
     options = {
@@ -9,6 +9,7 @@ in
         let
             hostType = types.submodule [
                 baseHostModule
+                homeManagerModule
                 (
                     { name, ... }:
                     {
@@ -30,15 +31,15 @@ in
     };
 
     config = {
-            flake.nixosConfigurations =
-            let
-                mkHost =
-                    hostname: options:
+        flake.nixosConfigurations =
+        let
+            mkHost =
+                hostname: options:
 
-                    options.nixpkgs.lib.nixosSystem {
-                        inherit (options) system modules specialArgs;
-                    };
-            in
-            lib.mapAttrs mkHost config.nixosHosts;
+                options.nixpkgs.lib.nixosSystem {
+                    inherit (options) system modules specialArgs;
+                };
+        in
+        lib.mapAttrs mkHost config.nixosHosts;
     };
 }

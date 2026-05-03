@@ -2,7 +2,7 @@
 let
     inherit (lib) mkOption types;
 in
-{ config, name, ... }:
+{ config, ... }:
 {
     options = {
         system = mkOption {
