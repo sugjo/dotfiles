@@ -25,6 +25,8 @@
         btop
         htop
         systemd-manager-tui
+
+        nixd
       ];
 
       programs.neovim = {

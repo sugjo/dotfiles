@@ -8,9 +8,18 @@
         ]
         ++ (with config.flake.modules.nixos; [
             dev
+            games
             desktop
+            hyprland
             bluetooth
             nvidia
+        ]);
+
+        homeManagerModules = [
+        ]
+        ++ (with config.flake.modules.homeManager; [
+            noctalia-shell
+            hyprland
         ]);
     };
 }
