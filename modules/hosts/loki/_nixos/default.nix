@@ -5,6 +5,7 @@
     ];
  
     programs.ssh.startAgent = true;
+    home-manager.backupFileExtension = "backup";
 
     time.hardwareClockInLocalTime = true;
 

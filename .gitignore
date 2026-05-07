@@ -27,3 +27,4 @@
 !*.json
 !*.toml
 !*.rs
+!wallpaper.*
