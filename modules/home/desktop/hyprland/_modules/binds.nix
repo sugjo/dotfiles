@@ -1,5 +1,5 @@
+{ lib, ... }:
 {
-    flake.modules.homeManager.hyprland = { lib, ... }: {
         wayland.windowManager.hyprland.settings = {
             "$mod" = "SUPER";
 
@@ -35,5 +35,4 @@
                 "$mod, mouse:273, resizewindow"
             ];
         };
-    };
 }

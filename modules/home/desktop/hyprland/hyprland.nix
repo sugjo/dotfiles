@@ -1,5 +1,11 @@
 {
     flake.modules.homeManager.hyprland = {
+        imports = [
+            ./_modules/binds.nix
+            ./_modules/visual.nix
+            ./_modules/rules.nix
+        ];
+
         wayland.windowManager.hyprland = {
             enable = true;
 

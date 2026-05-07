@@ -18,8 +18,7 @@
         homeManagerModules = [
         ]
         ++ (with config.flake.modules.homeManager; [
-            noctalia-shell
-            hyprland
+            desktop
         ]);
     };
 }
