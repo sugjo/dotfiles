@@ -1,13 +1,7 @@
 {
-    flake.modules.nixos.desktop = {pkgs, ...}:
+    flake.modules.nixos.wayland = {pkgs, ...}:
     {
         security.polkit.enable = true;
-
-        fonts.packages = with pkgs; [
-            noto-fonts
-            nerd-fonts.jetbrains-mono
-            monocraft
-        ];
 
         environment.sessionVariables = {
             NIXOS_OZONE_WL = "1";

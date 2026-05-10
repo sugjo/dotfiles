@@ -11,20 +11,22 @@ flakeArgs: {
         home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-
-            users.${primaryUser}.imports = [
-                flakeArgs.config.flake.modules.homeManager.core
-                {
-                    home.homeDirectory = config.users.users.${primaryUser}.home;
-                }
-            ];
-
+            backupFileExtension = "backup";
             extraSpecialArgs = {
                 inherit (flakeArgs) inputs;
                 inherit primaryUser;
                 configName = "nixos_${hostName}";
-                nhSwitchCommand = "nh os switch";
             };
         };
+
+        hm = [{
+            home = {
+                homeDirectory = config.users.users.${primaryUser}.home;
+                stateVersion = "25.11";
+                username = primaryUser;
+            };
+
+            programs.home-manager.enable = true;
+        }];
     };
 }

@@ -43,13 +43,14 @@ in
         finalPackage = mkOption {
             type = types.package;
         };
+
     };
     config = {
         nixpkgs = if config.unstable then inputs.nixpkgs else inputs.nixpkgs-stable;
-        pkgs = import config.nixpkgs {
-            inherit (config) system;
-            config.allowUnfree = true;
-        };
+        # pkgs = import config.nixpkgs {
+        #     inherit (config) system;
+        #     config.allowUnfree = true;
+        # };
         specialArgs = {
             inherit inputs;
             inherit (config) primaryUser;

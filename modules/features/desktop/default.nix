@@ -1,7 +1,10 @@
 { config, ... }:
 {
     flake.modules.nixos.desktop.imports = with config.flake.modules.nixos; [
-        hyprland
+        stylix
+        kitty
+        wayland
+        fonts
         throne
         sound
     ];

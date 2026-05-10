@@ -7,18 +7,15 @@
             ./_nixos
         ]
         ++ (with config.flake.modules.nixos; [
-            dev
-            games
+            substituters
+            home-manager
             desktop
             hyprland
+            noctalia-shell
+            games
             bluetooth
             nvidia
-        ]);
-
-        homeManagerModules = [
-        ]
-        ++ (with config.flake.modules.homeManager; [
-            desktop
+            torrserver
         ]);
     };
 }

@@ -17,5 +17,9 @@
 
             config.hyprland.default = [ "hyprland" "gtk" ];
         };
+
+        hm = [
+            ./_modules
+        ];
     };
 }
