@@ -5,6 +5,7 @@
             vesktop
             telegram-desktop
             mpv
+            super-productivity
         ];
     };
 }
