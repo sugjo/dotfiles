@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ osConfig, lib, ... }:
 {
         wayland.windowManager.hyprland.settings = {
             "$mod" = "SUPER";
@@ -10,6 +10,7 @@
 
                 "$mod, V, togglefloating"
                 "$mod, R, exec, noctalia-shell ipc call launcher toggle"
+                "$mod, J, exec, ${osConfig.desktop.browser}"
                 "$mod, F, fullscreen, 1"
                 "$mod SHIFT, F, fullscreen"
 
