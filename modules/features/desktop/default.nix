@@ -7,5 +7,6 @@
         fonts
         throne
         sound
+        firefox
     ];
 }

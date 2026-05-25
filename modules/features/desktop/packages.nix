@@ -5,7 +5,6 @@
             vesktop
             telegram-desktop
             mpv
-            firefox
         ];
     };
 }
