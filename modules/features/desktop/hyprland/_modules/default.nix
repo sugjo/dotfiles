@@ -3,11 +3,12 @@
         ./binds.nix
         ./visual.nix
         ./rules.nix
+        ./autostart.nix
     ];
 
     wayland.windowManager.hyprland = {
         enable = true;
-
+        systemd.enable = false;
         settings = {
             monitor = [ ",preffered,auto,1" ];
 
