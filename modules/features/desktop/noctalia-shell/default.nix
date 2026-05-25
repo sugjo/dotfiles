@@ -13,6 +13,9 @@
                     enable = true;
 
                     settings = {
+		    	ui = {
+			    translucentWidgets = true;
+			};
                         settingsVersion = 59;
                         dock = {
                             enabled = false;
@@ -24,6 +27,7 @@
 
                         general = {
                             enableShadows = false;
+			    animationDisabled = true;
                         };
                     };
                 };
