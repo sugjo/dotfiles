@@ -9,8 +9,8 @@
         ++ (with config.flake.modules.nixos; [
             substituters
             home-manager
-            desktop
             hyprland
+            desktop
             cli
             noctalia-shell
             games

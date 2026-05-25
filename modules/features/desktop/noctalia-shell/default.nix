@@ -19,8 +19,7 @@
                         };
 
                         wallpaper = {
-                            enabled = true;
-                            directory = "/home/${primaryUser}/Pictures/wallpaper";
+                            enabled = false;
                         };
 
                         general = {
