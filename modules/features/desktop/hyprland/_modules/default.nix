@@ -17,9 +17,6 @@
                 kb_options = "grp:alt_shift_toggle";
             };
 
-            exec-once = [
-                "env NOCTALIA_CONFIG_DIR=$HOME/.config/noctalia NOCTALIA_SETTINGS_FILE=$HOME/.config/noctalia/settings.json noctalia-shell"
-            ];
         };
     };
 }
