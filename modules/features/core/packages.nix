@@ -25,16 +25,6 @@
         btop
         htop
         systemd-manager-tui
-
-        nixd
       ];
-
-      programs.neovim = {
-        enable = true;
-
-        defaultEditor = true;
-        viAlias = true;
-        vimAlias = true;
-      };
     };
 }

@@ -11,6 +11,7 @@
             home-manager
             desktop
             hyprland
+            cli
             noctalia-shell
             games
             bluetooth
