@@ -12,6 +12,7 @@
             hyprland
             desktop
             cli
+            yubikey
             noctalia-shell
             games
             bluetooth
