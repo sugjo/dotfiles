@@ -36,7 +36,7 @@
                 image = ./wallpaper.jpg;
 
                 polarity = "dark";
-                opacity.desktop = 0.60;
+                opacity.desktop = 0.90;
                 opacity.terminal = 0.85;
 
                 cursor = {

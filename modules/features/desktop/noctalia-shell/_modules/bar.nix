@@ -1,5 +1,5 @@
 {
-    programs.noctalia-shell.settings.bar = {
+    programs.noctalia.settings.bar = {
       barType = "framed";
       widgetSpacing = 4;
       # marginHorizontal = 4;
