@@ -22,7 +22,7 @@ flakeArgs: {
         hm = [{
             home = {
                 homeDirectory = config.users.users.${primaryUser}.home;
-                stateVersion = "25.11";
+                stateVersion = "26.05";
                 username = primaryUser;
             };
 

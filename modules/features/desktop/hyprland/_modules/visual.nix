@@ -1,59 +1,115 @@
+let
+    bezier = name: x1: y1: x2: y2: { _args = [ name { type = "bezier"; points = [ [ x1 y1 ] [ x2 y2 ] ]; } ]; };
+    anim = leaf: speed: bezier: style: { inherit leaf speed bezier; enabled = true; inherit style; };
+    animSimple = leaf: speed: bezier: { inherit leaf speed bezier; enabled = true; };
+in
 {
     wayland.windowManager.hyprland.settings = {
-        general = {
-            gaps_in = 4;
-            gaps_out = 12;
-            border_size = 2;
-            layout = "dwindle";
-            allow_tearing = false;
-            # "col.active_border" = "rgba(F06292ee)";
-            # "col.inactive_border" = "rgba(595959aa)";
-        };
+        config = {
+            animations.enabled = true;
 
-        decoration = {
-            rounding = 13;
-            # shadow = {
-            #     enabled = true;
-            #     range = 4;
-            #     render_power = 3;
-            #     color = "rgba(1a1a1aee)";
-            # };
-            blur = {
-                enabled = true;
-                size = 3;
-                passes = 3;
-                vibrancy = 0.1696;
+            general = {
+                gaps_in = 4;
+                gaps_out = 8;
+                border_size = 2;
+                layout = "dwindle";
+                allow_tearing = false;
+            };
+
+            decoration = {
+                rounding = 0;
+                blur = {
+                    enabled = true;
+                    size = 3;
+                    passes = 3;
+                    vibrancy = 0.1696;
+                };
+            };
+
+            dwindle = {
+              preserve_split = true;
+            };
+
+            misc = {
+              force_default_wallpaper = 0;
+              disable_hyprland_logo = true;
             };
         };
 
-        animations = {
-            enabled = true;
-            bezier = [
-                "easeOutQuint,0.23,1,0.32,1"
-                "easeInOutCubic,0.65,0.05,0.36,1"
-                "linear,0,0,1,1"
-                "almostLinear,0.5,0.5,0.75,1.0"
-                "quick,0.15,0,0.1,1"
-            ];
-            animation = [
-                "global, 1, 10, default"
-                "border, 1, 5.39, easeOutQuint"
-                "windows, 1, 4.79, easeOutQuint"
-                "windowsIn, 1, 4.1, easeOutQuint, popin 87%"
-                "windowsOut, 1, 1.49, linear, popin 87%"
-                "fadeIn, 1, 1.73, almostLinear"
-                "fadeOut, 1, 1.46, almostLinear"
-                "fade, 1, 3.03, quick"
-                "layers, 1, 3.81, easeOutQuint"
-                "layersIn, 1, 4, easeOutQuint, fade"
-                "layersOut, 1, 1.5, linear, fade"
-                "fadeLayersIn, 1, 1.79, almostLinear"
-                "fadeLayersOut, 1, 1.39, almostLinear"
-                "workspaces, 1, 1.94, almostLinear, fade"
-                "workspacesIn, 1, 1.21, almostLinear, fade"
-                "workspacesOut, 1, 1.94, almostLinear, fade"
-            ];
-        };
+        layer_rule = [
+            { 
+                match.namespace = "^noctalia-.*$";
+                blur = true;
+                ignore_alpha = 0.2;
+                blur_popups = true;
+                xray = false;
+            }
+        ];
+
+        window_rule = [
+            { 
+                match = {
+                    float = false;
+                    workspace = "w[tv1]";
+                };
+                border_size = 0;
+            }
+            { 
+                match = {
+                    float = false;
+                    workspace = "f[1]";
+                };
+                border_size = 1;
+            }
+        ];
+
+        workspace_rule = [
+            {
+                workspace = "w[tv1]";
+                gaps_out = 0;
+                gaps_in = 0;
+
+            }
+            {
+                workspace = "f[1]";
+                gaps_out = 0;
+                gaps_in = 0;
+
+            }
+        ];
+
+
+        curve = [
+            (bezier "easeOutQuint" 0.23 1 0.32 1)
+            (bezier "easeInOutCubic" 0.65 0.05 0.36 1)
+            (bezier "linear" 0 0 1 1)
+            (bezier "almostLinear" 0.5 0.5 0.75 1.0)
+            (bezier "quick" 0.15 0 0.1 1)
+        ];
+
+        animation = [
+            (animSimple "global" 10 "default")
+            (animSimple "border" 5.39 "easeOutQuint")
+            (animSimple "windows" 4.79 "easeOutQuint")
+            
+            (anim "windowsIn" 4.1 "easeOutQuint" "popin 87%")
+            (anim "windowsOut" 1.49 "linear" "popin 87%")
+            
+            (animSimple "fadeIn" 1.73 "almostLinear")
+            (animSimple "fadeOut" 1.46 "almostLinear")
+            (animSimple "fade" 3.03 "quick")
+            (animSimple "layers" 3.81 "easeOutQuint")
+            
+            (anim "layersIn" 4 "easeOutQuint" "fade")
+            (anim "layersOut" 1.5 "linear" "fade")
+            
+            (animSimple "fadeLayersIn" 1.79 "almostLinear")
+            (animSimple "fadeLayersOut" 1.39 "almostLinear")
+            
+            (anim "workspaces" 1.94 "almostLinear" "fade")
+            (anim "workspacesIn" 1.21 "almostLinear" "fade")
+            (anim "workspacesOut" 1.94 "almostLinear" "fade")
+        ];
     };
 }
 

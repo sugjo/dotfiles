@@ -7,7 +7,7 @@
             ./_nixos
         ]
         ++ (with config.flake.modules.nixos; [
-            substituters
+            # substituters
             home-manager
             hyprland
             desktop

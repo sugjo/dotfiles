@@ -1,6 +1,8 @@
 {
     flake.modules.nixos.hyprland = {pkgs, ...}:
     {
+        desktop.wm = "start-hyprland";
+
         programs.hyprland = {
             enable = true;
             xwayland.enable = true;

@@ -27,6 +27,10 @@ in
                 type = types.str;
                 example = "firefox";
             };
+            wm = mkOption {
+                type = types.str;
+                example = "sway";
+            };
         };
     };
 }

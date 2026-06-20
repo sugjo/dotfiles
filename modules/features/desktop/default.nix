@@ -8,5 +8,6 @@
         throne
         sound
         firefox
+        display-manager
     ];
 }

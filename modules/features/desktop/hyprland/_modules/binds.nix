@@ -1,39 +1,62 @@
-{ osConfig, lib, ... }:
+{ lib, osConfig, ... }:
+let
+    dsp = import ./dsp.nix { inherit lib; };
+
+    bind = keys: dispatcher: { _args = [keys dispatcher]; };
+    bindOpts = keys: dispatcher: opts: { _args = [keys dispatcher opts]; };
+
+    workspaceBinds = lib.concatMap (i:
+        let key = toString (lib.mod i 10);
+        in [
+            (bind "SUPER + ${key}" (dsp.focusWorkspace i))
+            (bind "SUPER + SHIFT + ${key}" (dsp.moveToWorkspace i))
+        ]
+    ) (lib.range 1 10);
+in
 {
-        wayland.windowManager.hyprland.settings = {
-            "$mod" = "SUPER";
+    wayland.windowManager.hyprland = {
+        settings = {
+          bind = [
+            (bind "SUPER + Q" (dsp.exec "kitty"))
+            (bind "SUPER + R" (dsp.exec "${osConfig.desktop.launcher}"))
 
-            bind = [
-                "$mod, Q, exec, kitty"
-                "$mod, C, killactive"
-                "$mod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
+            # Window management
+            (bind "SUPER + C" dsp.close)
+            (bind "SUPER + M" dsp.exit)
+            (bind "SUPER + V" dsp.float)
+            (bind "SUPER + F" dsp.maximize)
+            (bind "SUPER + SHIFT + F" dsp.fullscreen)
 
-                "$mod, V, togglefloating"
-                "$mod, R, exec, noctalia-shell ipc call launcher toggle"
-                "$mod, J, exec, ${osConfig.desktop.browser}"
-                "$mod, F, fullscreen, 1"
-                "$mod SHIFT, F, fullscreen"
+            # Focus
+            (bind "SUPER + H" (dsp.focus "left"))
+            (bind "SUPER + L" (dsp.focus "right"))
+            (bind "SUPER + K" (dsp.focus "up"))
+            (bind "SUPER + J" (dsp.focus "down"))
 
-                "$mod, H, movefocus, l"
-                "$mod, L, movefocus, r"
-                "$mod, K, movefocus, u"
-                "$mod, J, movefocus, d"
+            # Swap windows
+            (bind "SUPER + SHIFT + H" (dsp.swap "left"))
+            (bind "SUPER + SHIFT + L" (dsp.swap "right"))
+            (bind "SUPER + SHIFT + K" (dsp.swap "up"))
+            (bind "SUPER + SHIFT + J" (dsp.swap "down"))
 
-                "$mod SHIFT, H, movewindow, l"
-                "$mod SHIFT, L, movewindow, r"
-                "$mod SHIFT, K, movewindow, u"
-                "$mod SHIFT, J, movewindow, d"
+            # Special workspace
+            (bind "SUPER + S" (dsp.toggleSpecial "magic"))
+            (bind "SUPER + SHIFT + S" (dsp.moveToSpecial "magic"))
 
-                "$mod, escape, exec, noctalia-shell ipc call sessionMenu toggle"
-            ]
-            ++ (builtins.concatMap (i: [
-                "$mod, code:1${toString i}, workspace, ${toString (i+1)}"
-                "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString (i + 1)}"
-            ]) (lib.range 0 9));
+            # Scroll through workspaces
+            (bind "SUPER + mouse_down" (dsp.focusWorkspace "e+1"))
+            (bind "SUPER + mouse_up" (dsp.focusWorkspace "e-1"))
 
-            bindm = [
-                "$mod, mouse:272, movewindow"
-                "$mod, mouse:273, resizewindow"
-            ];
+            # Volume keys
+            (bindOpts "XF86AudioRaiseVolume" (dsp.exec "wpctl set-volume @ 5%+") { locked = true; repeating = true; })
+            (bindOpts "XF86AudioLowerVolume" (dsp.exec "wpctl set-volume @ 5%-") { locked = true; repeating = true; })
+            (bindOpts "XF86AudioMute" (dsp.exec "wpctl set-mute @ toggle") { locked = true; })
+            (bindOpts "XF86AudioMicMute" (dsp.exec "wpctl set-mute u/DEFAULT_AUDIO_SOURCE@ toggle") { locked = true; })
+
+            # Mouse move/resize
+            (bindOpts "SUPER + mouse:272" dsp.drag { mouse = true; })
+            (bindOpts "SUPER + mouse:273" dsp.resize { mouse = true; })
+          ] ++ workspaceBinds;
         };
+    };
 }
