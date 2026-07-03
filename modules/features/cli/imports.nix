@@ -4,6 +4,7 @@
         zoxide
         nvim
         tmux
+        sesh
         bash
         television
     ];

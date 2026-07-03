@@ -24,6 +24,7 @@
                     set -g status-left " #S:"
 
                     bind r source-file "~/.config/tmux/tmux.conf"
+                    bind-key "f" display-popup -E -w 80% -h 80% "tv sesh"
 
                     bind h select-pane -L
                     bind j select-pane -D
@@ -42,6 +43,7 @@
                     unbind -T copy-mode-vi MouseDragEnd1Pane
 
                     bind-key -n M-s run-shell "sesh last"
+                    bind-key -n M-f display-popup -E -w 80% -h 80% "tv sesh"
 
                     bind -n M-h select-pane -L
                     bind -n M-j select-pane -D
