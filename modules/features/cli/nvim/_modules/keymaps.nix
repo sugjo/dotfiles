@@ -16,19 +16,6 @@
               mode = "n";
               key = "<leader>lf";
               action.__raw = "vim.lsp.buf.format";
-            {
-                mode = "i";
-                key = "<C-Space>";
-                action.__raw = ''
-                    function()
-                        vim.lsp.completion.get()
-                    end
-                '';
-                options = {
-                    noremap = true;
-                    silent = true;
-                    desc = "Trigger LSP completion";
-                };
             }
             {
                 mode = [ "n" "x" "o" ];

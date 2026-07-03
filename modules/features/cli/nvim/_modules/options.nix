@@ -1,6 +1,8 @@
 {
     programs.nixvim = {
         opts = {
+            autocomplete = false;
+            completeopt = [ "menu" "menuone" "noselect" "noinsert" ];
             # Номера строк
             number = true;
             relativenumber = true;
