@@ -1,9 +1,10 @@
-{ config, lib, modulesPath, ... }: {
+{ config, lib, modulesPath, pkgs, ... }: {
     imports = [
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
     boot = {
+        kernelPackages = pkgs.linuxPackages_latest;
         initrd = {
             availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
             kernelModules = [ "dm-snapshot" ];
