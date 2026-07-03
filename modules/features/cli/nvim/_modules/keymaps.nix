@@ -1,56 +1,21 @@
 {
-    programs.nixvim = {
+    programs.nixvim =
+    let
+        bind = mode: key: action: { mode = mode; key = key; action = action; };
+    in
+    {
         keymaps = [
-            {
-                action = "<cmd>Oil<CR>";
-                key = "-";
-                mode = "n";
-            }
-            {
-                mode = "n";
-                key = "<leader>fd";
-                action = "<cmd>Pick files<cr>";
-            }
-            {
-                mode = "n";
-                key = "<leader>fg";
-                action = "<cmd>Pick grep_live<cr>";
-            }
-            # Центрирование экрана при прокрутке (Ctrl+d и Ctrl+u)
-            {
-              mode = "n";
-              key = "<C-d>";
-              action = "<C-d>zz";
-              options.noremap = true;
-            }
-            {
-              mode = "n";
-              key = "<C-u>";
-              action = "<C-u>zz";
-              options.noremap = true;
-            }
-
-            # Центрирование экрана при поиске (следующее/предыдущее совпадение)
-            {
-              mode = "n";
-              key = "n";
-              action = "nzzzv";
-              options.noremap = true;
-            }
-            {
-              mode = "n";
-              key = "N";
-              action = "Nzzzv";
-              options.noremap = true;
-            }
-
-            # Форматирование кода через встроенный LSP
+            (bind "n" "-" "<cmd>Oil<CR>")
+            (bind "n" "<leader>fd" "<cmd>Pick files<cr>")
+            (bind "n" "<leader>fg" "<cmd>Pick grep_live<cr>")
+            (bind "n" "<C-d>" "<C-d>zz")
+            (bind "n" "<C-u>" "<C-u>zz")
+            (bind "n" "n" "nzzzv")
+            (bind "n" "N" "Nzzzv")
             {
               mode = "n";
               key = "<leader>lf";
               action.__raw = "vim.lsp.buf.format";
-              options.noremap = true;
-            }
             {
                 mode = "i";
                 key = "<C-Space>";
@@ -68,8 +33,7 @@
             {
                 mode = [ "n" "x" "o" ];
                 key = "s";
-                action = "<cmd>lua require('flash').jump()<cr>";
-                options.desc = "Flash Jump";
+                action.__raw = "require('flash').jump";
             }
         ];
     };
