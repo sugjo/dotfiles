@@ -41,6 +41,22 @@
 
             # Поведение Backspace
             backspace = [ "start" "eol" "indent" ];
+
+            list = true;
+            listchars = "tab:» ,trail:·,nbsp:␣,multispace:|   ";
+        };
+
+        diagnostic.settings = {
+            signs = {
+                text = [ " " " " " " " " ];
+            };
+            virtual_lines = {
+                current_line = true; 
+            };
+            underline = true;
+            update_in_insert = false;
+
+            severity_sort = true;
         };
     };
 }

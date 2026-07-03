@@ -1,4 +1,4 @@
-{
+{ config, ... }: {
     programs.nixvim = {
         plugins = {
             oil = {
@@ -45,6 +45,39 @@
                             "hide_documentation"
                         ];
                     };
+                };
+            };
+            hlchunk = {
+                enable = true;
+                settings = {
+                  chunk = {
+                    chars = {
+                      horizontal_line = "─";
+                      left_bottom = "╰";
+                      left_top = "╭";
+                      right_arrow = "─";
+                      vertical_line = "│";
+                    };
+                    enable = true;
+                    style = if config.lib ? stylix then [
+                        {
+                            fg = config.lib.stylix.colors.withHashtag.base0E;
+                        }
+                    ] else [];
+                    use_treesitter = true;
+                    duration = 80;
+                    delay = 150;
+                  };
+                  indent = {
+                    enable = true;
+                    chars = [ "│" "¦" "┆" "┊" ];
+                    style = if config.lib ? stylix then [
+                        {
+                            fg = config.lib.stylix.colors.withHashtag.base0D;
+                        }
+                    ] else [];
+                    use_treesitter = true;
+                  };
                 };
             };
             mini-pick.enable = true;
