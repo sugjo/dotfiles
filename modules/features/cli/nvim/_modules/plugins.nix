@@ -16,7 +16,7 @@
                 enable = true;
                 signcolumn = true;
             };
-            lspconfig.enable = true;
+            lsp.enable = true;
             luasnip.enable = true;
             blink-cmp = {
                 enable = true;
