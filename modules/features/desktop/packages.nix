@@ -3,7 +3,7 @@
     {
         environment.systemPackages = with pkgs; [
             hyprpaper
-            vesktop
+            discord
             telegram-desktop
             mpv
             super-productivity
