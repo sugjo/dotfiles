@@ -1,11 +1,12 @@
 {
-    programs.noctalia.settings.bar = {
+    programs.noctalia.settings.bar = { config, ...}: {
       barType = "framed";
       widgetSpacing = 4;
+      background_opacity = config.lib.stylix.opacity.terminal;
       # marginHorizontal = 4;
       # marginVertical = 4;
       showCapsule = false;
-      
+
       widgets = {
         center = [
           {
