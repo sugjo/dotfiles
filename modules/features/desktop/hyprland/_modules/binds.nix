@@ -24,6 +24,7 @@ in
             (bind "SUPER + C" dsp.close)
             (bind "SUPER + M" dsp.exit)
             (bind "SUPER + V" dsp.float)
+            (bind "SUPER + P" dsp.pin)
             (bind "SUPER + F" dsp.maximize)
             (bind "SUPER + SHIFT + F" dsp.fullscreen)
 

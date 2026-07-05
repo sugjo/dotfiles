@@ -7,6 +7,7 @@ in
     close = lua "hl.dsp.window.close()";
     exit = lua "hl.dsp.exit()";
     float = lua ''hl.dsp.window.float({ action = "toggle" })'';
+    pin = lua ''hl.dsp.window.pin({ action = "toggle" })'';
     maximize = lua ''hl.dsp.window.fullscreen({ mode = "maximized" })'';
     fullscreen = lua "hl.dsp.window.fullscreen()";
     pseudo = lua "hl.dsp.window.pseudo()";
