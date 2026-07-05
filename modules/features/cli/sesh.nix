@@ -11,6 +11,7 @@
                             tmux new-window -t "''${SESH_NAME}:2" -n "Writing" "''${SHELL} -c 'nvim .; ''${SHELL}'"
                             tmux select-window -t "''${SESH_NAME}:1"
                             clear
+                            eza --all --git --icons --color=always
                             exec ''${SHELL}
                         '';
                     };
@@ -23,6 +24,7 @@
                             tmux new-window -t "$SESH_NAME:3" -n 'Serve'
                             tmux select-window -t "$SESH_NAME:2"
                             clear
+                            eza --all --git --icons --color=always
                         '';
                     }) [ "~/Documents" "~/Projects" "~/.config" ];
                 };
