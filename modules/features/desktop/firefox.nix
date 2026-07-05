@@ -1,27 +1,31 @@
 {
-    flake.modules.nixos.firefox = { lib, ... }: {
+    flake.modules.nixos.firefox = { lib, primaryUser, ... }: {
         desktop.browser = lib.mkDefault "firefox";
 
         hm = [{
             programs.firefox = {
                 enable = true;
-                profiles.sugjo = {
+                profiles = {
+                    ${primaryUser} = {
                         id = 0;
                         isDefault = true;
-                        name = "sugjo";
+                        name = "${primaryUser}";
+                        path = "${primaryUser}";
                         extensions.force = true;
                         settings = {
                             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
                             "extensions.autoDisableScopes" = 0;
                         };
                     };
+                };
         	};
 
             stylix.targets.firefox = {
                 colorTheme.enable = true;
-                    enable = true;
-                    profileNames = [ "sugjo" ]; 
-                };
+                colors.enable = true;
+                enable = true;
+                profileNames = [ "${primaryUser}" ]; 
+            };
         }];
     };
 }
