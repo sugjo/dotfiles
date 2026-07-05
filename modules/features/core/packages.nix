@@ -8,6 +8,7 @@
         fd
         file
         git
+        gh
         killall
         ncdu
         nfs-utils # Linux user-space NFS utilities
@@ -16,6 +17,7 @@
         tree
         wget
         p7zip
+        comma
 
         # Network
         dig # Domain name server
