@@ -3,6 +3,8 @@
     {
         environment.systemPackages = with pkgs; [
             hyprpaper
+            hyprpwcenter
+            pavucontrol
             discord
             telegram-desktop
             mpv
