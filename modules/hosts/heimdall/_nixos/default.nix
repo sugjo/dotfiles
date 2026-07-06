@@ -2,6 +2,7 @@
     imports = [
         ./hardware.nix
         ./disko.nix
+        ./mount.nix
     ];
  
     programs.ssh.startAgent = true;
