@@ -1,7 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
     flake-parts = {
@@ -12,7 +11,7 @@
     import-tree.url = "github:vic/import-tree";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -33,11 +32,14 @@
         inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    noctalia.url = "github:noctalia-dev/noctalia";
+    noctalia = {
+        url = "github:noctalia-dev/noctalia";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    nixvim.url = "github:nix-community/nixvim/nixos-26.05";
-    niri.url = "github:sodiboo/niri-flake";
-    wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+    nixvim = {
+        url = "github:nix-community/nixvim";
+    };
   };
 
   outputs =

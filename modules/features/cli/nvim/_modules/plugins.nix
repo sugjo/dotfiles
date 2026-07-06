@@ -14,7 +14,7 @@
             };
             gitsigns = {
                 enable = true;
-                signcolumn = true;
+                settings.signcolumn = true;
             };
             lsp.enable = true;
             luasnip.enable = true;
@@ -83,7 +83,7 @@
             mini-pick.enable = true;
             mini-statusline.enable = true;
             web-devicons.enable = true;
-            nvim-colorizer.enable = true;
+            colorizer.enable = true;
             dressing.enable = true;
             flash.enable = true;
         };
