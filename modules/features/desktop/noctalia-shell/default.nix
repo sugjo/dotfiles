@@ -2,6 +2,7 @@
 {
     flake.modules.nixos.noctalia-shell = { config, ... }: {
         desktop.launcher = lib.mkDefault "noctalia msg panel-toggle launcher";
+        desktop.lockscreen = lib.mkDefault "noctalia msg session lock";
 
         hm = [
             # ./_modules/bar.nix
@@ -36,17 +37,18 @@
                             widget_spacing = 12;
                         };
                         theme = {
-                            # Критически важные параметры для v5:
                             source = "custom";
-                            custom_palette = "stylix"; # Имя файла без расширения в папке palettes/
+                            custom_palette = "stylix";
                             mode = config.stylix.polarity;
                         };
                         dock = {
                             enabled = false;
                         };
-
                         wallpaper = {
                             enabled = false;
+                        };
+                        lockscreen = {
+                            wallpaper = ../wallpaper.jpg;
                         };
                     };
                 };

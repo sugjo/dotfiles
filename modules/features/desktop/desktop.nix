@@ -23,6 +23,9 @@ in
                 type = types.str;
                 example = "rofi";
             };
+            lockscreen = mkOption {
+                type = types.str;
+            };
             browser = mkOption {
                 type = types.str;
                 example = "firefox";

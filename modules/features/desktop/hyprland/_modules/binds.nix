@@ -19,6 +19,7 @@ in
           bind = [
             (bind "SUPER + Q" (dsp.exec "kitty"))
             (bind "SUPER + R" (dsp.exec "${osConfig.desktop.launcher}"))
+            (bind "SUPER + L" (dsp.exec "${osConfig.desktop.lockscreen}"))
 
             # Window management
             (bind "SUPER + C" dsp.close)
