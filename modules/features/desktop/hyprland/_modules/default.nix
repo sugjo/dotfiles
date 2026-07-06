@@ -4,6 +4,7 @@
         ./visual.nix
     #     ./rules.nix
         ./autostart.nix
+        ./packages.nix
     ];
 
     wayland.windowManager.hyprland = {

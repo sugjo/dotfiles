@@ -26,6 +26,10 @@ in
             lockscreen = mkOption {
                 type = types.str;
             };
+            screenshot = mkOption {
+                type = types.str;
+                example = "hyprshot -m output";
+            };
             browser = mkOption {
                 type = types.str;
                 example = "firefox";

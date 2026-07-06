@@ -2,6 +2,7 @@
     flake.modules.nixos.hyprland = {pkgs, ...}:
     {
         desktop.wm = "start-hyprland";
+        desktop.screenshot = "hyprshot -m output -m active --clipboard-only";
 
         programs.hyprland = {
             enable = true;

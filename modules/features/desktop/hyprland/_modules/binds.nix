@@ -20,6 +20,8 @@ in
             (bind "SUPER + Q" (dsp.exec "kitty"))
             (bind "SUPER + R" (dsp.exec "${osConfig.desktop.launcher}"))
             (bind "SUPER + L" (dsp.exec "${osConfig.desktop.lockscreen}"))
+            (bind "Print" (dsp.exec "${osConfig.desktop.screenshot}"))
+
 
             # Window management
             (bind "SUPER + C" dsp.close)
