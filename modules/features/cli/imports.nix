@@ -6,6 +6,7 @@
         tmux
         sesh
         fish
+        fzf
         television
     ];
 }
