@@ -1,5 +1,5 @@
 {
-    flake.modules.nixos.tmux = { ... }: {
+    flake.modules.nixos.tmux = { pkgs, ... }: {
         hm = [{
             programs.tmux = {
                 enable = true;
@@ -10,6 +10,7 @@
                 reverseSplit = false;
                 customPaneNavigationAndResize = false; 
                 mouse = true; 
+                shell = "${pkgs.fish}/bin/fish";
 
                 extraConfig = ''
                     set -g allow-passthrough on

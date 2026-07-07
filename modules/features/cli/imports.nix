@@ -5,7 +5,7 @@
         nvim
         tmux
         sesh
-        bash
+        fish
         television
     ];
 }
