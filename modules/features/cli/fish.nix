@@ -1,5 +1,6 @@
 {
     flake.modules.nixos.fish = {
+        programs.fish.enable = true;
         hm = [{
             programs.fish = {
                 enable = true;
