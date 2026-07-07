@@ -1,30 +1,38 @@
 { pkgs, ... }: {
     flake.modules.nixos.sesh = { ... }: {
         hm = [{
+            xdg.configFile."tmuxp/default.yaml".text = ''
+                session_name: "''${PWD}"
+                windows:
+                  - window_name: Shell
+                    layout: tiled
+                    panes:
+                      - '[ -f devenv.nix ] && devenv shell || $SHELL'
+                  - window_name: Nvim
+                    layout: tiled
+                    focus: true
+                    panes:
+                      - '[ -f devenv.nix ] && devenv shell nvim . || nvim .'
+                  - window_name: Serve
+                    layout: tiled
+                    panes:
+                      - '[ -f devenv.nix ] && devenv shell || $SHELL'
+            '';
             programs.sesh = {
                 enable = true;
                 enableTmuxIntegration = false;
                 settings = {
                     default_session = {
                         startup_command = ''
-                            tmux rename-window -t 1 "Shell"
-                            tmux new-window -t "''${SESH_NAME}:2" -n "Writing" "''${SHELL} -c 'nvim .; ''${SHELL}'"
-                            tmux select-window -t "''${SESH_NAME}:1"
-                            clear
-                            eza --all --git --icons --color=always
-                            exec ''${SHELL}
+                            #!/bin/bash
+                            exec tmuxp load -a default -s "$SESH_NAME"
                         '';
                     };
                     wildcard = map (path: {
                         pattern = "${path}/*";
                         startup_command = ''
                             #!/bin/bash
-                            tmux rename-window -t 1 "Shell"
-                            tmux new-window -t "$SESH_NAME:2" -n 'Writing' "$SHELL -c 'nvim .; $SHELL'"
-                            tmux new-window -t "$SESH_NAME:3" -n 'Serve'
-                            tmux select-window -t "$SESH_NAME:2"
-                            clear
-                            eza --all --git --icons --color=always
+                            exec tmuxp load -a default -s "$SESH_NAME"
                         '';
                     }) [ "~/Documents" "~/Projects" "~/.config" ];
                 };

@@ -10,6 +10,7 @@
                 reverseSplit = false;
                 customPaneNavigationAndResize = false; 
                 mouse = true; 
+                tmuxp.enable = true;
                 shell = "${pkgs.fish}/bin/fish";
 
                 extraConfig = ''
