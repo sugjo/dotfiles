@@ -13,6 +13,7 @@
             hyprland
             desktop
             cli
+            yubikey
             noctalia-shell
             bluetooth
         ]);
