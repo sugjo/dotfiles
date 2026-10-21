@@ -8,6 +8,7 @@
         ]
         ++ (with config.flake.modules.nixos; [
             # substituters
+            music
             docker
             home-manager
             hyprland
