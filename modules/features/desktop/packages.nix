@@ -3,6 +3,7 @@
     {
         environment.systemPackages = with pkgs; [
             remmina
+            google-chrome
             hyprpaper
             hyprpwcenter
             pavucontrol
