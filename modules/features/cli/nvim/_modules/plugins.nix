@@ -18,6 +18,7 @@
             };
             lsp.enable = true;
             luasnip.enable = true;
+            harpoon.enable = true;
             blink-cmp = {
                 enable = true;
                 settings = {
