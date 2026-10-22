@@ -23,6 +23,7 @@
                         };
                     };
                 };
+                yamlls.enable = true;
                 ols.enable = true;
                 gopls.enable = true;
                 clangd.enable = true;
