@@ -2,7 +2,6 @@
     imports = [
         ./hardware.nix
         ./disko.nix
-        ./overlays.nix
     ];
  
     programs.ssh.startAgent = true;
