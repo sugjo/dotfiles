@@ -1,3 +1,4 @@
+{ config, ... }:
 {
     programs.nixvim = {
         opts = {
@@ -44,6 +45,17 @@
 
             list = true;
             listchars = "tab:» ,trail:·,nbsp:␣,multispace:|   ";
+        };
+
+        highlightOverride = {
+          Normal = {
+            fg = config.lib.stylix.colors.withHashtag.base05;
+            bg = "NONE";
+          };
+          NormalNC = {
+            fg = config.lib.stylix.colors.withHashtag.base05;
+            bg = "NONE";
+          };
         };
 
         diagnostic.settings = {

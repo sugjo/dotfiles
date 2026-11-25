@@ -8,6 +8,7 @@
         ]
         ++ (with config.flake.modules.nixos; [
             # substituters
+            wezterm
             docker
             home-manager
             hyprland
